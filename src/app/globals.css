@@ -511,7 +511,7 @@ html, body {
 .video-player-container:-webkit-full-screen iframe {
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
   border-radius: 0 !important;
 }
 
@@ -541,6 +541,6 @@ html, body {
 video:-webkit-full-screen {
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
   background: #000;
 }

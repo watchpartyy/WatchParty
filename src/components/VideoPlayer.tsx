@@ -353,7 +353,7 @@ export default function VideoPlayer({ videoUrl, videoType, onSync, externalState
         </div>
       )}
 
-      <video ref={videoRef} src={proxyUrl} className="w-full h-full object-contain" onPlay={onPlay} onPause={onPause} onSeeking={onSeeking} onTimeUpdate={onTime} onLoadedMetadata={e => { setDur(e.currentTarget.duration); setLoading(false) }} onWaiting={() => setLoading(true)} onCanPlay={() => setLoading(false)} onError={() => { setError(true); setLoading(false) }} onClick={togglePlay} crossOrigin="anonymous" preload="metadata" controls={false} />
+      <video ref={videoRef} src={proxyUrl} className="w-full h-full object-cover" onPlay={onPlay} onPause={onPause} onSeeking={onSeeking} onTimeUpdate={onTime} onLoadedMetadata={e => { setDur(e.currentTarget.duration); setLoading(false) }} onWaiting={() => setLoading(true)} onCanPlay={() => setLoading(false)} onError={() => { setError(true); setLoading(false) }} onClick={togglePlay} crossOrigin="anonymous" preload="metadata" controls={false} />
 
       {/* Subtitle */}
       {subText && (
