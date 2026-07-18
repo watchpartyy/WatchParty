@@ -385,6 +385,15 @@ html, body {
   }
 }
 
+/* ── Mobile video: fill available space ── */
+@media (max-width: 639px) {
+  .video-player-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
 /* ── Mobile video container: landscape height cap ── */
 @media (max-width: 1023px) and (orientation: landscape) {
   .mobile-video-wrap > div:first-child {

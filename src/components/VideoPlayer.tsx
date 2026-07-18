@@ -307,7 +307,7 @@ export default function VideoPlayer({ videoUrl, videoType, onSync, externalState
 
   if (videoType === 'youtube') {
     return (
-      <div ref={containerRef} className="video-player-container relative w-full max-sm:aspect-auto sm:aspect-video bg-black rounded-xl sm:rounded-2xl overflow-hidden ring-1 ring-white/5">
+      <div ref={containerRef} className="video-player-container relative w-full max-sm:aspect-auto sm:aspect-video bg-black max-sm:rounded-none sm:rounded-xl lg:rounded-2xl overflow-hidden max-sm:ring-0 sm:ring-1 sm:ring-white/5">
         <iframe ref={playerRef} src={`https://www.youtube.com/embed/${videoUrl}?enablejsapi=1&rel=0`} className="absolute inset-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
       </div>
     )
@@ -318,7 +318,7 @@ export default function VideoPlayer({ videoUrl, videoType, onSync, externalState
   return (
     <div
       ref={containerRef}
-      className="video-player-container relative w-full max-sm:aspect-auto sm:aspect-video bg-black rounded-xl sm:rounded-2xl overflow-hidden group ring-1 ring-white/5 video-glow"
+      className="video-player-container relative w-full max-sm:aspect-auto sm:aspect-video bg-black max-sm:rounded-none sm:rounded-xl lg:rounded-2xl overflow-hidden group max-sm:ring-0 sm:ring-1 sm:ring-white/5 video-glow"
       onMouseMove={show}
       onMouseLeave={() => { if (playing) setControls(false); setPanel('none') }}
       onTouchStart={show}
