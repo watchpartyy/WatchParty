@@ -94,7 +94,7 @@ export default function RoomPage() {
   if (!username) return <UserSetup onJoin={handleJoin} />
 
   return (
-    <div className="h-screen bg-[#0B0D11] flex flex-col overflow-hidden relative grid-pattern">
+    <div className="h-dvh sm:h-screen bg-[#0B0D11] flex flex-col overflow-hidden relative grid-pattern">
       {/* Subtle ambient glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-[300px] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[var(--accent)]/[0.03] rounded-full blur-[120px]" />
@@ -102,47 +102,47 @@ export default function RoomPage() {
       </div>
 
       {/* Top bar */}
-      <header className="flex-shrink-0 border-b border-white/5 bg-[#0B0D11]/80 backdrop-blur-xl z-50 relative">
-        <div className="max-w-[1800px] mx-auto px-5 h-12 flex items-center justify-between">
+      <header className="flex-shrink-0 border-b border-white/5 bg-[#0B0D11]/80 backdrop-blur-xl z-50 relative safe-top">
+        <div className="max-w-[1800px] mx-auto px-3 sm:px-5 h-11 sm:h-12 flex items-center justify-between gap-2">
           {/* Back */}
-          <button onClick={() => router.push('/')} className="flex items-center gap-2 text-white/30 hover:text-white/60 transition text-sm" style={{ fontFamily: 'var(--font-body)' }}>
-            <svg className="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            بازگشت
+          <button onClick={() => router.push('/')} className="flex items-center gap-1 sm:gap-2 text-white/30 hover:text-white/60 transition text-xs sm:text-sm flex-shrink-0 min-w-0" style={{ fontFamily: 'var(--font-body)' }}>
+            <svg className="w-4 h-4 rotate-180 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            <span className="hidden sm:inline">بازگشت</span>
           </button>
 
           {/* Room info */}
-          <div className="relative">
+          <div className="relative min-w-0 flex-1 flex justify-center">
             <RoomHeader roomName={room.name} roomId={room.id} userCount={userCount} users={onlineUsers} />
           </div>
 
           {/* User */}
-          <div className="flex items-center gap-2 text-white/40 text-sm">
-            <span className="w-2 h-2 bg-[var(--accent)] rounded-full animate-pulse-dot" />
-            <span style={{ fontFamily: 'var(--font-body)' }}>{username}</span>
+          <div className="flex items-center gap-1.5 sm:gap-2 text-white/40 text-xs sm:text-sm flex-shrink-0 min-w-0">
+            <span className="w-2 h-2 bg-[var(--accent)] rounded-full animate-pulse-dot flex-shrink-0" />
+            <span className="truncate max-w-[70px] sm:max-w-none" style={{ fontFamily: 'var(--font-body)' }}>{username}</span>
           </div>
         </div>
       </header>
 
-      {/* Main content */}
-      <div className="flex-1 flex min-h-0 relative">
-        {/* Video */}
-        <div className="flex-1 min-w-0 p-3 pr-0 flex flex-col">
-          <div className="w-full flex-1 flex items-center">
-            <div className="w-full">
+      {/* Main content — vertical on mobile, horizontal on desktop */}
+      <div className="flex-1 flex flex-col lg:flex-row min-h-0 relative">
+        {/* Video — full width on mobile, flex-1 on desktop */}
+        <div className="mobile-video-wrap w-full lg:flex-1 min-w-0 flex-shrink-0 lg:shrink-0">
+          <div className="w-full h-full flex items-center justify-center p-2 sm:p-3 lg:p-3 lg:pr-0">
+            <div className="w-full h-full flex items-center">
               <VideoPlayer videoUrl={room.videoUrl} videoType={room.videoType as 'youtube' | 'direct'} onSync={handleSync} externalState={syncState} />
             </div>
           </div>
         </div>
 
-        {/* Chat sidebar — same height as video */}
-        <div className="w-[360px] flex-shrink-0 p-3 pl-0 hidden lg:flex flex-col">
+        {/* Chat sidebar — desktop */}
+        <div className="hidden lg:flex w-[360px] flex-shrink-0 p-3 pl-0 flex-col min-h-0">
           <Chat messages={messages} onSendMessage={handleSend} username={username} />
         </div>
-      </div>
 
-      {/* Mobile chat */}
-      <div className="lg:hidden flex-shrink-0 p-2 border-t border-white/5">
-        <Chat messages={messages} onSendMessage={handleSend} username={username} />
+        {/* Chat — mobile: fills remaining space */}
+        <div className="lg:hidden flex-1 min-h-0 flex flex-col px-2 pb-2 safe-bottom">
+          <Chat messages={messages} onSendMessage={handleSend} username={username} />
+        </div>
       </div>
     </div>
   )

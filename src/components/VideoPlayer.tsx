@@ -255,7 +255,7 @@ export default function VideoPlayer({ videoUrl, videoType, onSync, externalState
 
   if (videoType === 'youtube') {
     return (
-      <div ref={containerRef} className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden ring-1 ring-white/5">
+      <div ref={containerRef} className="relative w-full aspect-video bg-black rounded-xl sm:rounded-2xl overflow-hidden ring-1 ring-white/5">
         <iframe ref={playerRef} src={`https://www.youtube.com/embed/${videoUrl}?enablejsapi=1&rel=0`} className="absolute inset-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
       </div>
     )
