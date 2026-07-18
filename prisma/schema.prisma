@@ -1,0 +1,28 @@
+// Watch Party Database Schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Room {
+  id        String    @id @default(uuid())
+  name      String
+  videoUrl  String
+  videoType String    // "youtube" | "direct"
+  createdAt DateTime  @default(now())
+  messages  Message[]
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  roomId    String
+  room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  username  String
+  content   String
+  createdAt DateTime @default(now())
+}
