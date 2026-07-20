@@ -529,13 +529,12 @@ html, body {
 
 /* ── Mobile portrait: compact volume controls ── */
 @media (max-width: 639px) and (orientation: portrait) {
-  /* Volume slider always visible on mobile (hover doesn't work on touch) */
+  /* Hide volume slider — users use hardware buttons on mobile */
   .video-player-container .group\/vol input[type="range"] {
-    width: 56px !important;
-    display: block !important;
+    display: none !important;
   }
 
-  /* Override the group-hover w-0 behavior via parent — force visible on mobile */
+  /* Override the group-hover w-0 behavior via parent */
   .video-player-container .group\/vol {
     display: flex !important;
     align-items: center !important;
@@ -547,14 +546,14 @@ html, body {
     padding-right: 2px;
   }
 
-  /* Smaller buttons on portrait mobile */
+  /* Smaller buttons on portrait mobile — 32px to fit everything */
   .video-player-container .video-controls-overlay button {
-    width: 36px !important;
-    height: 36px !important;
+    width: 32px !important;
+    height: 32px !important;
   }
   .video-player-container .video-controls-overlay button svg {
-    width: 15px !important;
-    height: 15px !important;
+    width: 14px !important;
+    height: 14px !important;
   }
 
   /* Compact time text */
@@ -569,6 +568,16 @@ html, body {
     padding-right: 6px !important;
     padding-top: 4px !important;
     padding-bottom: 4px !important;
+  }
+
+  /* Allow left group to shrink if needed */
+  .video-player-container .video-controls-overlay .justify-between > div:first-child {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  /* Always keep right group (settings + fullscreen) at fixed size */
+  .video-player-container .video-controls-overlay .justify-between > div:last-child {
+    flex-shrink: 0;
   }
 }
 
