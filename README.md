@@ -11,7 +11,7 @@
 <br>
 
 <p align="center">
-  <a href="./SETUP.md">📦 Self-Hosting Guide</a>
+  <a href="./SETUP.md">📦 Deployment Guide</a>
   &nbsp;|&nbsp;
   <a href="./README-FA.md">🇮🇷 فارسی</a>
 </p>
@@ -76,3 +76,9 @@ Works on desktop and mobile. Fullscreen mode with orientation lock on mobile dev
 
 Built with ❤️ by **SPK** & **MMDJ**.  
 Licensed under the [MIT License](./LICENSE).
+
+---
+
+## 📦 Deploy
+
+Deploy your own instance — see the [Deployment Guide](./SETUP.md).

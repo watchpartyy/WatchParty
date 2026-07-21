@@ -1,4 +1,4 @@
-# Watch Party — Self-Hosting Guide
+# Watch Party — Deployment Guide
 
 This guide covers local development setup and deploying on Railway.
 
