@@ -169,7 +169,7 @@ export function useVoice(roomId: string, username: string) {
     const currentlyEnabled = room.localParticipant.isMicrophoneEnabled
     try {
       await room.localParticipant.setMicrophoneEnabled(!currentlyEnabled)
-      setMuted(!currentlyEnabled)
+      setMuted(currentlyEnabled) // if was enabled → now muted → setMuted(true)
     } catch (err) {
       console.error('[Voice] Toggle mute error:', err)
     }
