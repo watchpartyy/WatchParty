@@ -33,11 +33,8 @@ export default function Home() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 py-10 sm:py-16">
         {/* Hero - clean, headline-first */}
         <div className="text-center mb-10 sm:mb-16 animate-fade-in-up">
-          <div className="inline-block px-3 py-1 rounded-full glass-card text-[11px] sm:text-xs font-medium text-[var(--accent)] mb-4 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-            ✨ رایگان
-          </div>
           <h2
-            className="text-4xl sm:text-5xl md:text-7xl font-black text-[var(--text-primary)] mb-4 sm:mb-5 leading-tight"
+            className="text-4xl sm:text-5xl lg:text-7xl font-black text-[var(--text-primary)] mb-5 sm:mb-6 leading-[1.1]"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             با دوستات همزمان{' '}
@@ -117,22 +114,17 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="relative z-10 mt-16 sm:mt-20 text-center border-t border-[var(--border-subtle)] pt-6 sm:pt-8 pb-6 sm:pb-4 glass-card rounded-t-2xl -mx-4 mb-[-20px]">
-        <div className="flex flex-col items-center gap-1.5">
-          <p className="text-[var(--text-muted)] text-xs sm:text-sm" style={{ fontFamily: 'var(--font-body)' }}>
-            ساخته شده با عشق توسط
-          </p>
-          <div className="flex items-center justify-center gap-3 text-xs sm:text-sm" style={{ fontFamily: 'var(--font-body)' }}>
-            <span className="font-semibold text-[var(--text-secondary)]">باهم</span>
-            <span className="text-[var(--text-muted)]">&</span>
-            <span className="font-semibold text-[var(--text-secondary)]">baham</span>
+        {/* Footer */}
+        <footer className="mt-12 sm:mt-16 text-center border-t border-[var(--border-subtle)] pt-6 sm:pt-8 pb-6">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-[var(--text-muted)] text-xs sm:text-sm" style={{ fontFamily: 'var(--font-body)' }}>
+              ساخته شده توسط <span className="font-semibold text-[var(--text-secondary)]">SPK</span> و <span className="font-semibold text-[var(--text-secondary)]">MMDJ</span>
+            </p>
+            <p className="text-[var(--text-muted)] text-[10px] sm:text-xs mt-1 opacity-60" style={{ fontFamily: 'var(--font-body)' }}>
+              © {new Date().getFullYear()} sinapk
+            </p>
           </div>
-          <p className="text-[var(--text-muted)] text-[10px] sm:text-xs mt-2 opacity-60" style={{ fontFamily: 'var(--font-body)' }}>
-            تحت مجوز MIT — {new Date().getFullYear()} © baham
-          </p>
-        </div>
-      </footer>
+        </footer>
     </main>
   )
 }
